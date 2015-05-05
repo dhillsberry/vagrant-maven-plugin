@@ -1,5 +1,13 @@
 language: java
 
+<<<<<<< HEAD
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install virtualbox
+=======
+sudo: required
+
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install virtualbox -qq
+>>>>>>> install virtual box before running

@@ -29,8 +29,13 @@ import java.io.InputStreamReader;
  */
 public class SelectorHelper {
 
+		/** @return {@code true} if VirtualBox is installed. */
+		public static boolean isVirtualBoxAvailable() {
+			return isVirtualBoxAvailableWindows() || isVirtualBoxAvailableUnix();
+		}
+
     /** @return {@code true} if VirtualBox is installed. */
-    public static boolean isVirtualBoxAvailable() {
+    public static boolean isVirtualBoxAvailableWindows() {
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("VBoxManage --help").getInputStream()));
@@ -44,4 +49,20 @@ public class SelectorHelper {
             return false;
         }
     }
+
+		/** @return {@code true} if VirtualBox is installed. */
+		public static boolean isVirtualBoxAvailableUnix() {
+				BufferedReader reader = null;
+				try {
+					reader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("vboxmanage --help").getInputStream()));
+					return reader.readLine().contains("VirtualBox Command Line Management Interface");
+				} catch (Throwable t) {
+					if (reader != null)
+						try {
+							reader.close();
+						} catch (IOException mute) {
+						}
+					return false;
+				}
+		}
 }
