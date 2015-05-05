@@ -1,4 +1,4 @@
-vagrant-maven-plugin [![Build Status](https://buildhive.cloudbees.com/job/nicoulaj/job/vagrant-maven-plugin/badge/icon)](https://buildhive.cloudbees.com/job/nicoulaj/job/vagrant-maven-plugin/)
+vagrant-maven-plugin [![Build Status](https://travis-ci.org/barclay-reg/vagrant-maven-plugin.svg)](https://travis-ci.org/barclay-reg/vagrant-maven-plugin)
 =====================
 
 **[Maven](http://maven.apache.org) plugin for [Vagrant](http://www.vagrantup.com).**
