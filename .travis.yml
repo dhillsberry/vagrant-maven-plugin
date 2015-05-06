@@ -7,6 +7,9 @@ before_install:
   
 install:
   - sudo apt-get install virtualbox -qq --fix-missing
-  
+
+before_script:
+  - which vboxmanage
+  - echo $PATH
 script:
   - mvn verify
