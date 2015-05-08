@@ -39,7 +39,9 @@ public class SelectorHelper {
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("VBoxManage --help").getInputStream()));
-            return reader.readLine().contains("VirtualBox Command Line Management Interface");
+	          String firstLine = reader.readLine();
+	          System.out.println("Windows first line: "+ firstLine);
+            return firstLine.contains("VirtualBox Command Line Management Interface");
         } catch (Throwable t) {
             if (reader != null)
                 try {
@@ -55,7 +57,9 @@ public class SelectorHelper {
 				BufferedReader reader = null;
 				try {
 					reader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("vboxmanage --help").getInputStream()));
-					return reader.readLine().contains("VirtualBox Command Line Management Interface");
+					String firstLine = reader.readLine();
+					System.out.println("Unix first line: "+ firstLine);
+					return firstLine.contains("VirtualBox Command Line Management Interface");
 				} catch (Throwable t) {
 					if (reader != null)
 						try {
