@@ -7,6 +7,8 @@ before_install:
   
 install:
   - sudo apt-get install virtualbox -qq --fix-missing
+  - sudo apt-get install virtualbox-ose-dkms -q
+  - sudo apt-get install linux-headers-generic -q
 
 before_script:
   - which vboxmanage
