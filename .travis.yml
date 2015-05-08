@@ -7,14 +7,13 @@ before_install:
   
 install:
   - sudo apt-get install virtualbox -qq --fix-missing
-  - sudo apt-get install virtualbox-ose-dkms -q
   - sudo apt-get install linux-headers-generic -q
-  - sudo dpkg-reconfigure virtualbox-dkms
   - sudo /etc/init.d/vboxdrv setup
 
 before_script:
   - which vboxmanage
   - vboxmanage --help
-  
+  - vagrant
+
 script:
   - mvn verify
