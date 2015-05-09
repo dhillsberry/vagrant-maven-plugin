@@ -8,6 +8,8 @@ before_install:
 install:
   - sudo apt-get install virtualbox -qq --fix-missing
   - sudo apt-get install mutt -qq
+  - sudo apt-get install uuencode -qq
+  - sudo apt-get install mailx -qq
 
 before_script:
   - vboxmanage --help
