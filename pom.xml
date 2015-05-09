@@ -70,8 +70,8 @@
         <!-- versions -->
         <java.level>1.6</java.level>
         <vagrant.version>1.0.7</vagrant.version>
-        <jruby.version>1.7.7</jruby.version>
-        <gem-maven-plugin.version>1.0.9</gem-maven-plugin.version>
+        <jruby.version>1.7.12</jruby.version>
+        <gem-maven-plugin.version>1.0.8</gem-maven-plugin.version>
         <maven-plugin-tools-javadoc.version>3.2</maven-plugin-tools-javadoc.version>
 
         <!-- integration tests settings -->

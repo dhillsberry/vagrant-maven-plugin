@@ -50,7 +50,6 @@ public class SelectorHelper {
 			try {
 				is = Runtime.getRuntime().exec(command).getInputStream();
 				String fullConsole = IOUtil.toString(is);
-				System.out.println(fullConsole);
 				return fullConsole.contains(expectedResponse);
 			} catch (Throwable t) {
 				if (is != null) {
