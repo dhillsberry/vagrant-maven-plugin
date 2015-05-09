@@ -204,7 +204,8 @@
                 <configuration>
                     <localRepositoryPath>${project.build.directory}/it/local-repository</localRepositoryPath>
                     <showErrors>true</showErrors>
-                    <streamLogs>true</streamLogs>
+                    <streamLogs>false</streamLogs>
+                    <debug>true</debug>
                     <settingsFile>src/it/settings.xml</settingsFile>
                     <projectsDirectory>src/it/projects</projectsDirectory>
                     <pomIncludes>
