@@ -7,8 +7,6 @@ before_install:
   
 install:
   - sudo apt-get install virtualbox -qq --fix-missing
-  - sudo apt-get install mail -qq
-  - sudo apt-get install zip -qq
 
 before_script:
   - vboxmanage --help
