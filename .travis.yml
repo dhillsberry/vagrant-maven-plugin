@@ -7,9 +7,6 @@ before_install:
   
 install:
   - sudo apt-get install virtualbox -qq --fix-missing
-  - sudo apt-get install mutt -qq
-  - sudo apt-get install sharutils -qq
-  - sudo apt-get install mailx -qq
 
 before_script:
   - vboxmanage --help
@@ -18,5 +15,5 @@ script:
   - mvn verify
 
 after_script:
-  - zip buildlogs.zip /home/travis/build/barclay-reg/vagrant-maven-plugin/target/it/projects/*/build.log
-  - uuencode buildlogs.zip | mailx -s "Die Logfiles" $VAR_EMAIL
+  - for f in /home/travis/build/barclay-reg/vagrant-maven-plugin/target/it/projects/*/build.log; do echo "Showing $f file.."; cat $f done
+  - cat /home/travis/build/barclay-reg/vagrant-maven-plugin/target/it/projects/*/build.log
