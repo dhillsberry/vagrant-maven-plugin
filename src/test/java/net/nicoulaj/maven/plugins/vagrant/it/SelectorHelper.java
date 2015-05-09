@@ -15,9 +15,9 @@
  */
 package net.nicoulaj.maven.plugins.vagrant.it;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import org.codehaus.plexus.util.IOUtil;
+
+import java.io.*;
 
 /**
  * Utilities used by maven-invoker-plugin selector scripts.
@@ -36,37 +36,32 @@ public class SelectorHelper {
 
     /** @return {@code true} if VirtualBox is installed. */
     public static boolean isVirtualBoxAvailableWindows() {
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("VBoxManage --help").getInputStream()));
-	          String firstLine = reader.readLine();
-	          System.out.println("Windows first line: "+ firstLine);
-            return firstLine.contains("VirtualBox Command Line Management Interface");
-        } catch (Throwable t) {
-            if (reader != null)
-                try {
-                    reader.close();
-                } catch (IOException mute) {
-                }
-            return false;
-        }
+	      return checkAvailability("VBoxManage --help", "VirtualBox Command Line Management Interface");
     }
 
 		/** @return {@code true} if VirtualBox is installed. */
 		public static boolean isVirtualBoxAvailableUnix() {
-				BufferedReader reader = null;
-				try {
-					reader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("vboxmanage --help").getInputStream()));
-					String firstLine = reader.readLine();
-					System.out.println("Unix first line: "+ firstLine);
-					return firstLine.contains("VirtualBox Command Line Management Interface");
-				} catch (Throwable t) {
-					if (reader != null)
-						try {
-							reader.close();
-						} catch (IOException mute) {
-						}
-					return false;
+				return checkAvailability("vboxmanage --help", "VirtualBox Command Line Management Interface");
+		}
+
+		private static boolean checkAvailability(String command, String expectedResponse) {
+
+			InputStream is = null;
+			try {
+				is = Runtime.getRuntime().exec(command).getInputStream();
+				String fullConsole = IOUtil.toString(is);
+				System.out.println(fullConsole);
+				return fullConsole.contains(expectedResponse);
+			} catch (Throwable t) {
+				if (is != null) {
+					try {
+						is.close();
+					} catch (IOException e) {
+						//e.printStackTrace();
+					}
 				}
+				return false;
+			}
+
 		}
 }
