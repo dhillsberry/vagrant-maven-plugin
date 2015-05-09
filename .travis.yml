@@ -15,5 +15,4 @@ script:
   - mvn verify
 
 after_script:
-  - for f in /home/travis/build/barclay-reg/vagrant-maven-plugin/target/it/projects/*/build.log; do echo "Showing $f file.."; cat $f done
-  - cat /home/travis/build/barclay-reg/vagrant-maven-plugin/target/it/projects/*/build.log
+  - for f in /home/travis/build/barclay-reg/vagrant-maven-plugin/target/it/projects/*/build.log; do echo "Showing $f file.."; cat $f; done

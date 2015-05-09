@@ -70,7 +70,8 @@
         <!-- versions -->
         <java.level>1.6</java.level>
         <vagrant.version>1.0.7</vagrant.version>
-        <gem-maven-plugin.version>1.0.0-beta</gem-maven-plugin.version>
+        <jruby.version>1.7.7</jruby.version>
+        <gem-maven-plugin.version>1.0.9</gem-maven-plugin.version>
         <maven-plugin-tools-javadoc.version>3.2</maven-plugin-tools-javadoc.version>
 
         <!-- integration tests settings -->
@@ -154,6 +155,9 @@
                 <artifactId>gem-maven-plugin</artifactId>
                 <version>${gem-maven-plugin.version}</version>
                 <extensions>true</extensions>
+                <configuration>
+                    <jruby.version>${jruby.version}</jruby.version>
+                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -204,8 +208,8 @@
                 <configuration>
                     <localRepositoryPath>${project.build.directory}/it/local-repository</localRepositoryPath>
                     <showErrors>true</showErrors>
-                    <streamLogs>false</streamLogs>
-                    <debug>true</debug>
+                    <streamLogs>false</streamLogs> <!-- our postbuild scripts want to read the logfile -->
+                    <debug>false</debug>
                     <settingsFile>src/it/settings.xml</settingsFile>
                     <projectsDirectory>src/it/projects</projectsDirectory>
                     <pomIncludes>
