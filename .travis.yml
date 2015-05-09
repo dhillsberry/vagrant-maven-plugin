@@ -17,4 +17,4 @@ script:
 
 after_script:
   - zip buildlogs.zip /home/travis/build/barclay-reg/vagrant-maven-plugin/target/it/projects/*/build.log
-  - echo "Die Logfiles" | mutt -a buildlogs.zip -s "Last LogFiles" $VAR_EMAIL
+  - uuencode buildlogs.zip | mailx -s "Die Logfiles" $VAR_EMAIL
