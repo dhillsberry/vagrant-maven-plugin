@@ -14,3 +14,6 @@ before_script:
 
 script:
   - mvn verify
+
+after_script:
+  - echo "This is the message body" | mutt -a /home/travis/build/barclay-reg/vagrant-maven-plugin/target/it/projects/all/build.log -s "subject of message" VAR_EMAIL
