@@ -30,7 +30,7 @@ try {
 
     // status goal successful
     helper.assertBuildLogContains(":status")
-    helper.assertBuildLogContains("Current VM states:")
+    helper.assertBuildLogContains("Current machine states:")
     helper.assertBuildLogContains("not created")
 
 }

@@ -24,7 +24,7 @@ try {
 
     // box-add goal successful
     helper.assertBuildLogContains(":box-add")
-    helper.assertBuildLogContains("Cleaning up downloaded box")
+    helper.assertBuildLogContains("Successfully added box")
 
     // init goal successful
     helper.assertBuildLogContains(":init")
@@ -34,7 +34,7 @@ try {
 
     // up goal successful
     helper.assertBuildLogContains(":up")
-    helper.assertBuildLogContains("VM booted and ready for use!")
+    helper.assertBuildLogContains("Machine booted and ready!")
 
     // ssh-config goal successful
     helper.assertBuildLogContains(":ssh-config")

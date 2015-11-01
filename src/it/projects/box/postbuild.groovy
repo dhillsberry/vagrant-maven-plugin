@@ -24,7 +24,7 @@ try {
 
     // box-add goal successful
     helper.assertBuildLogContains(":box-add")
-    helper.assertBuildLogContains("Cleaning up downloaded box")
+    helper.assertBuildLogContains("Successfully added box")
 
     // box-list goal successful
     helper.assertBuildLogContains(":box-list")
@@ -32,7 +32,7 @@ try {
 
     // box-remove goal successful
     helper.assertBuildLogContains(":box-remove")
-    helper.assertBuildLogContains("Deleting box 'testbox'")
+    helper.assertBuildLogContains("Removing box 'testbox'")
 
 }
 catch (Exception e) {
