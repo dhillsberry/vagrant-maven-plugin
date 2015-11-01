@@ -15,9 +15,7 @@
  */
 package net.nicoulaj.maven.plugins.vagrant;
 
-import de.saumya.mojo.ruby.script.ScriptException;
-
-import java.io.IOException;
+import org.apache.maven.plugin.MojoExecutionException;
 
 import static org.codehaus.plexus.util.StringUtils.isEmpty;
 
@@ -28,7 +26,7 @@ import static org.codehaus.plexus.util.StringUtils.isEmpty;
  * @goal resume
  * @since 1.0
  */
-@SuppressWarnings("unused")
+
 public final class ResumeMojo extends AbstractVagrantMojo {
 
     /** Mojo/Vagrant command name. */
@@ -42,7 +40,7 @@ public final class ResumeMojo extends AbstractVagrantMojo {
     protected String vm;
 
     @Override
-    protected void doExecute() throws IOException, ScriptException {
+    protected void doExecute() throws MojoExecutionException{
 
         if (!isEmpty(vm))
             cli(NAME, vm);

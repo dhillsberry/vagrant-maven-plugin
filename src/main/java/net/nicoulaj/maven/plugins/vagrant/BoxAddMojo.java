@@ -15,9 +15,7 @@
  */
 package net.nicoulaj.maven.plugins.vagrant;
 
-import de.saumya.mojo.ruby.script.ScriptException;
-
-import java.io.IOException;
+import org.apache.maven.plugin.MojoExecutionException;
 
 /**
  * Invokes Vagrant {@code box add} command.
@@ -26,7 +24,7 @@ import java.io.IOException;
  * @goal box-add
  * @since 1.0
  */
-@SuppressWarnings("unused")
+
 public final class BoxAddMojo extends AbstractVagrantMojo {
 
     /** Mojo/Vagrant command name. */
@@ -56,7 +54,7 @@ public final class BoxAddMojo extends AbstractVagrantMojo {
     protected boolean force;
 
     @Override
-    protected void doExecute() throws IOException, ScriptException {
+    protected void doExecute() throws MojoExecutionException {
 
         if (force)
             cli("box", "add", box, url, "--force");

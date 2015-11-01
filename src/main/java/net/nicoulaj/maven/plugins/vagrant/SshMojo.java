@@ -15,11 +15,10 @@
  */
 package net.nicoulaj.maven.plugins.vagrant;
 
-import de.saumya.mojo.ruby.script.ScriptException;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.maven.plugin.MojoExecutionException;
 
 import static org.codehaus.plexus.util.StringUtils.isEmpty;
 
@@ -30,7 +29,7 @@ import static org.codehaus.plexus.util.StringUtils.isEmpty;
  * @goal ssh
  * @since 1.0
  */
-@SuppressWarnings("unused")
+
 public final class SshMojo extends AbstractVagrantMojo {
 
     /** Mojo/Vagrant command name. */
@@ -65,7 +64,7 @@ public final class SshMojo extends AbstractVagrantMojo {
     protected String sshArgs;
 
     @Override
-    protected void doExecute() throws IOException, ScriptException {
+    protected void doExecute() throws MojoExecutionException{
 
         final List<String> args = new ArrayList<String>();
 

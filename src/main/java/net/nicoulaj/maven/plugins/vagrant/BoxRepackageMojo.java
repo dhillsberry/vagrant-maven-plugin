@@ -15,9 +15,9 @@
  */
 package net.nicoulaj.maven.plugins.vagrant;
 
-import de.saumya.mojo.ruby.script.ScriptException;
-
 import java.io.IOException;
+
+import org.apache.maven.plugin.MojoExecutionException;
 
 /**
  * Invokes Vagrant {@code box repackage} command.
@@ -41,7 +41,7 @@ public final class BoxRepackageMojo extends AbstractVagrantMojo {
     protected String box;
 
     @Override
-    protected void doExecute() throws IOException, ScriptException {
+    protected void doExecute() throws MojoExecutionException {
         cli("box", "repackage", box);
     }
 }
